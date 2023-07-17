@@ -1,0 +1,23 @@
+Foody (Name of the application)
+
+Components
+
+Header
+  -Logo
+  -Nav Items
+Body
+  -Search
+  -RestaurantContainer
+   -RestaurantCard
+Footer
+  - CopyRight
+  - Links
+  - Address
+  - Contact
+
+Props are used to pass data dynamically. it is just an argument pass to a function.
+Destructuring on the fly ({name, cuisine})
+config driven UI - website driven by data. controlling UI using the data(config).
+cloudinary is a CDN.
+why we need keys in map in react.
+Dont use index as Keys react official
