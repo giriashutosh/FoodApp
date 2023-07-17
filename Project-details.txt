@@ -21,3 +21,23 @@ config driven UI - website driven by data. controlling UI using the data(config)
 cloudinary is a CDN.
 why we need keys in map in react.
 Dont use index as Keys react official
+
+Two kind of export and import one is default and one is named(const).
+named used when we have to export multiple things or component or function or variables.
+
+React do fast, efficient DOM manipulation because of virtual DOM.
+React Hooks
+Normal js utility function
+important hooks useState() and useEffect().
+whenever a state variable updates react rerender the component.
+
+Reconcilation algo or React Fiber introduced in React16 it is a new way of finding the diff and updated the DOM.
+virtual DOM is a representation of actual DOM structure.
+virtual DOM is basically looks like an js object.
+
+Diff algo- Find out the difference between updated virtual DOM and previous virtual DOM.
+
+Need to Do
+1. code sliting in the Components
+2. utils folder for static data like image and api.
+3. filter logic.
