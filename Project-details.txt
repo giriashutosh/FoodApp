@@ -37,7 +37,25 @@ virtual DOM is basically looks like an js object.
 
 Diff algo- Find out the difference between updated virtual DOM and previous virtual DOM.
 
-Need to Do
+Done
 1. code sliting in the Components
 2. utils folder for static data like image and api.
 3. filter logic.
+
+Need to be Done
+add useEffect
+
+Monolith and Microservice Architecture
+Monolith - for example all the API code, backend, DB connectivity, UI, Auth, sms all the code written in same project known as Monolith.
+If we make any minor changes in the project in that case also need to compile the whole project and deploy.
+Microservice - Different sevices for different job. all the services combined and make a whole project.
+this is known as separation of concern and SRP.
+All these services need to talk to each other.
+can written multiple service in different languages.
+All the services deployed on different port/server.
+All the services has domain name corresponding to port or server whenever services need to interact with each other they call the URL.
+
+Two ways to fetch the data from api.
+1. As soon as page load we can make an api call then render it on the page.
+2. As soon as the page load we will quickly render UI after this we make api call then re re-render with the new data.
+2nd approach is better.
