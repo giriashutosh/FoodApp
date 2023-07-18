@@ -41,3 +41,9 @@
 .res-card > img{
     width: 100%
 }
+
+
+.filter-btn{
+    margin: 4px 0px 0px 0px;
+    cursor: pointer;
+}
