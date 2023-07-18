@@ -20,7 +20,7 @@ Destructuring on the fly ({name, cuisine})
 config driven UI - website driven by data. controlling UI using the data(config).
 cloudinary is a CDN.
 why we need keys in map in react.
-Dont use index as Keys react official
+Don't use index as Keys react official
 
 Two kind of export and import one is default and one is named(const).
 named used when we have to export multiple things or component or function or variables.
@@ -31,24 +31,32 @@ Normal js utility function
 important hooks useState() and useEffect().
 whenever a state variable updates react rerender the component.
 
-Reconcilation algo or React Fiber introduced in React16 it is a new way of finding the diff and updated the DOM.
+Reconciliation algo or React Fiber introduced in React16 it is a new way of finding the diff and updated the DOM.
 virtual DOM is a representation of actual DOM structure.
 virtual DOM is basically looks like an js object.
 
 Diff algo- Find out the difference between updated virtual DOM and previous virtual DOM.
 
 Done
-1. code sliting in the Components
+1. code splitting in the Components
 2. utils folder for static data like image and api.
 3. filter logic.
 
 Need to be Done
 add useEffect
+call swiggy API
+optional chaining
+spinner loader instead use shimmer UI - load fake page until we get data from API.
+conditional rendering
+CORS policy - our browser does not allow to call api from one origin to another.
+CORS chrome extension
+add search functionality
+add filter logic as per search
 
 Monolith and Microservice Architecture
 Monolith - for example all the API code, backend, DB connectivity, UI, Auth, sms all the code written in same project known as Monolith.
 If we make any minor changes in the project in that case also need to compile the whole project and deploy.
-Microservice - Different sevices for different job. all the services combined and make a whole project.
+Microservice - Different services for different job. all the services combined and make a whole project.
 this is known as separation of concern and SRP.
 All these services need to talk to each other.
 can written multiple service in different languages.
@@ -59,3 +67,10 @@ Two ways to fetch the data from api.
 1. As soon as page load we can make an api call then render it on the page.
 2. As soon as the page load we will quickly render UI after this we make api call then re re-render with the new data.
 2nd approach is better.
+
+
+why we need state?
+In case of normal variable if we change it dynamically that variable's value changes but does not re-render the UI.
+React has no way to track whether a normal variable got updated or not.
+
+whenever state variables update, react triggers a Reconciliation cycle (re-renders the component).
