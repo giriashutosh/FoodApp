@@ -42,7 +42,7 @@ Done
 2. utils folder for static data like image and api.
 3. filter logic.
 
-Need to be Done
+Done
 add useEffect
 call swiggy API
 optional chaining
@@ -52,6 +52,21 @@ CORS policy - our browser does not allow to call api from one origin to another.
 CORS chrome extension
 add search functionality
 add filter logic as per search
+
+Need to be Done
+Add login button
+install react-router-dom
+router configuration
+create About page
+Add contact us page
+Add err page and then add to router path
+use useRouteError
+childrenRoute
+use outlet to fill the children in Applayout
+Add link to header like Home, etc
+Add different page for different Restaurant using dynamic route.
+create resMenu page
+use Hook useParams
 
 Monolith and Microservice Architecture
 Monolith - for example all the API code, backend, DB connectivity, UI, Auth, sms all the code written in same project known as Monolith.
@@ -74,3 +89,26 @@ In case of normal variable if we change it dynamically that variable's value cha
 React has no way to track whether a normal variable got updated or not.
 
 whenever state variables update, react triggers a Reconciliation cycle (re-renders the component).
+
+useEffect called everytime component render but dependency array changes it behaviour.
+If no dependency array it will execute everytime.
+empty array will execute only initial render.
+If we put something inside array then this will execute only if that property will change.
+
+useState always should define at the top of the component.
+Don't use if else with state. it leads to inconsistency.
+
+Router-config -  tells what should happen at that route.
+configuration is a list array of an objects.
+createBrowserRouter, RouterProvider ,Link
+React-Router-Dom handle err page.
+outlet replace by the child component.
+In react when we have to route to a different page then should not use anchor tag because it refresh the entire page.
+Link is also working the same as anchor but it does not reload the page but refresh the component.
+Internally link replace by the anchor tag in the DOM.
+Link is the wrapper to anchor tag react-router-dom kep track of link that it does not reload.
+
+Two ways of Routing in web Apps
+1. client-side Routing - it already has the component/page at first load.
+2. server-side Routing - It makes the network call whenever we click on anchor tag thats why it reload the entire page.
+
