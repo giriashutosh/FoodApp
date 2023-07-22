@@ -18,6 +18,11 @@
 .nav-items > ul > li{
     margin:20px;
     list-style: none;
+    
+}
+
+.nav-items > ul >  .header-link{
+text-decoration: none;
 }
 
 .res-container{
