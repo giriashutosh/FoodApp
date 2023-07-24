@@ -7,7 +7,7 @@ const Header = () => {
         </div>
         <div className="nav-items">
             <ul>
-                <li>Home</li>
+                <li><Link to="/" className="header-links" style={{textDecoration: "none", color: "black"}}>Home</Link></li>
                 <li><Link to = "about" className="header-links" style={{textDecoration: "none", color: "black"}}>About Us</Link></li>
                 <li><Link to = "contact" className="header-links" style={{textDecoration: "none", color: "black"}}>Contact Us</Link></li>
                 <li>Cart</li>

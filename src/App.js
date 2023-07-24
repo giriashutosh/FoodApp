@@ -6,6 +6,7 @@ import Body from "./components/Body/Body";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
+import Menu from "./pages/Menu";
 
 const AppLayout = () => {
   return <div className="layout-container">
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/restaurant/:id",
+        element: <Menu/>
+      }
     ],
     errorElement: <Error/>
   },
