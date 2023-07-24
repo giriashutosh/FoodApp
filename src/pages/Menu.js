@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Shimmer from '../components/Shimmer/Shimmer';
+import MenuCard from '../components/MenuCard/MenuCard';
 
 const Menu = () => {
     const resId  = useParams();
@@ -22,11 +23,12 @@ const Menu = () => {
     const name = menu.data.cards[0].card.card.info.name;
     const cuisines = menu.data.cards[0].card.card.info.cuisines;
     const areaName = menu.data.cards[0].card.card.info.areaName;
+    const price = menu.data.cards[0].card.card.info.costForTwoMessage;
+    const image = menu.data.cards[0].card.card.info.cloudinaryImageId;
   return (
     <div className='menu-container'>
-          <h1> { name}</h1>
-          <p> {cuisines.join(", ")}</p>
-          <p> {areaName}</p>
+      <MenuCard title={name} price={price} areaName = {areaName} image = {image} cuisines={cuisines}/>
+          
     </div>
   )
 }
