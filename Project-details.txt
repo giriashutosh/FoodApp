@@ -112,3 +112,15 @@ Two ways of Routing in web Apps
 1. client-side Routing - it already has the component/page at first load.
 2. server-side Routing - It makes the network call whenever we click on anchor tag thats why it reload the entire page.
 
+class component life cycle
+Mount
+first thing when the class loads/mount first constructor called then render
+Mounting = constructor -> render -> componentDidMount
+componentDidMount is just like useEffect to call api or side effects
+we call api in the above functions because react  has to quickly render and then update the data to make use experience better.
+Render phase and commit phase
+React batch the render phase of multiple child inside the parent to optimize.
+because once the commit phase start dom update begins and it is an expensive operation
+ and then commit phase of every child start together.
+Need to do
+Add user component to about us page.
