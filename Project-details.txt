@@ -122,5 +122,16 @@ Render phase and commit phase
 React batch the render phase of multiple child inside the parent to optimize.
 because once the commit phase start dom update begins and it is an expensive operation
  and then commit phase of every child start together.
+When we use componentWillUnmount()
+when we are changing the page lots of thing we need to do
+like setTimeInterval() will execute even after page change because in SPA page is not reloading.
+so, clearInterval(this.timer) call inside the componentWillUnmount
+Same thing in useEffect also so to clear timeout or any thing
+useEffect(()=>{
+ .../code
+  return () => { // this will be call when component unmount
+
+  }
+})
 Need to do
 Add user component to about us page.
