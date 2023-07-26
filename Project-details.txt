@@ -133,5 +133,35 @@ useEffect(()=>{
 
   }
 })
+
+
+Each components should follow SRP.
+Distributing the code into smaller modules so it is easier to maintain and testable, reusable, readable.
+Custom Hooks - make code more readable, modular, testable;
+
 Need to do
+
 Add user component to about us page.
+Add custom hook inside the Menu page.
+so menu will only concern about to display the data and abstract the fetching logic.
+create MENU_API inside the utils to increase user experience.
+Add online and offline status using customhook use online-event listener given by browser.
+Add that custom hook in the body or header.
+
+When we are working on a large application in that if bundle all the files into a single file so the size of the file will increase
+so we need to optimize this otherwise it slow down the performance of an application
+so the steps
+chunking/code splitting/ Dynamic bundling
+logical separation of bundle. bundle should have enough code to support major features.
+
+How to create separate bundle of app/components
+1./on demand loading/Lazy Loading/dynamic import - load only when demand
+
+For Ex
+const Grocery = lazy(() => import(path of the grocery)) // create different chunk for Grocery
+it will show an error of suspend component because react is so fast and try to load the grocery component but that component will take 
+some time to load so it throws an error.
+To prevent this error we need to use Suspense component
+for ex- 
+<Suspense fallback = {<h1>Loading...</h1>}><Grocery></Suspense>
+fallback use to load something meanwhile grocery loaded.
