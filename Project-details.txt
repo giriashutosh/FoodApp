@@ -165,3 +165,12 @@ To prevent this error we need to use Suspense component
 for ex- 
 <Suspense fallback = {<h1>Loading...</h1>}><Grocery></Suspense>
 fallback use to load something meanwhile grocery loaded.
+
+CSS
+Sass provide super power to css.
+In industry used styled components.
+By using different lib and framework we can use CSS.
+ex- material ui, tailwind css, bootstrap, chakra ui, ant design.
+tailwind use postcss behind the scene
+ Create .postcssrc in the src
+ parcel need postcssrc to read tailwind.
