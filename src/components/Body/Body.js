@@ -17,6 +17,7 @@ const Body = () => {
   };
 
   const onClickSearchHandler = () => {
+    console.log(resList)
     console.log(resList[0].info.name.toLowerCase().includes(searchText.toLowerCase()));
         const filteredList = resList.filter((data) => data.info.name.toLowerCase().includes(searchText.toLowerCase()))
         setFilteredResList(filteredList)
@@ -44,16 +45,16 @@ const Body = () => {
 
   return resList.length === 0? (<Shimmer/>):(
     <div className="body">
-      <div className="filter-container">
-        <div className="search-container">
-            <input type="text" value = {searchText} onChange={onChangeSearchHandler}></input>
-            <button className= "search-btn" onClick={onClickSearchHandler}>Search</button>
+      <div className="flex justify-between my-4 mx-4">
+        <div >
+            <input className= "border mx-2 w-64" type="text" value = {searchText} onChange={onChangeSearchHandler}></input>
+            <button className= "bg-red-200 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
         </div>
-        <button className="filter-btn" onClick={filterResListHandler}>
+        <button className="bg-red-200 px-3 rounded-lg" onClick={filterResListHandler}>
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center mt-4">
         {filteredResList.map((card) => (
           <Link to={"/restaurant/"+card.info.id} key={card.info.id}><RestaurantCard key={card.info.id} resData={card} /></Link>
         ))}

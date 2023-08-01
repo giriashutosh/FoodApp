@@ -174,3 +174,16 @@ ex- material ui, tailwind css, bootstrap, chakra ui, ant design.
 tailwind use postcss behind the scene
  Create .postcssrc in the src
  parcel need postcssrc to read tailwind.
+
+ High Order Component
+ Takes a component modify it and return a new component.
+ It works as an enhancer.
+ React application UI layer and Data Layer.
+ UI layer powered by the data layer.
+
+ Need to Do
+ Add a HOC for the restaurant cards promoted.
+ Add category to flter out the all category item in resMenu.
+ Add accordian.
+ create restaurantcategory component and ItemList components.
+
