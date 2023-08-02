@@ -34,7 +34,7 @@ const Body = () => {
     //console.log(response)
     const json = await response.json();
     //console.log(json)
-    //console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
     setResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
     setFilteredResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
   };
@@ -43,7 +43,7 @@ const Body = () => {
     fetchData();
   }, []);
 
-  return resList.length === 0? (<Shimmer/>):(
+  return filteredResList.length === 0? (<Shimmer/>):(
     <div className="body">
       <div className="flex justify-between my-4 mx-4">
         <div >
