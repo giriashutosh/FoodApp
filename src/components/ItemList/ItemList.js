@@ -12,15 +12,15 @@ const ItemList = ({ data }) => {
   }
 
   return (
-    <div className='flex flex-col  w-1/2 '>
+    <div className='flex flex-col  w-1/2 cursor-pointer' onClick={arrowHandler}>
 
-      <div className='flex justify-between mb-2 bg-slate-200 font-bold'>
+      <div className='flex justify-between items-center px-2 mb-2 rounded-lg h-10 bg-slate-200 font-bold'>
         <h1>{data.title}({data.itemCards.length})</h1>
-        <img className="w-10" src={isOpen? UpArrow: Arrow} onClick={arrowHandler}/>
+        <img className="w-5" src={isOpen? UpArrow: Arrow} />
       </div>
       {isOpen &&
         data.itemCards.map((item) =>
-        <div className='flex justify-between mb-4 divide-y divide-dashed'>
+        <div key = {item.card.info.id} className='flex justify-between mb-4 border-b-2 px-4 '>
         <div>
           <h1>{item.card.info.name}</h1>
           <p>₹ {item.card.info.price / 100}</p>

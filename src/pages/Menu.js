@@ -34,7 +34,7 @@ const Menu = () => {
   console.log(categories)
 
   return (
-    <div className='flex flex-col items-center divide-y'>
+    <div className='flex flex-col items-center '>
       <MenuCard title={name} price={price} areaName={areaName} image={image} cuisines={cuisines} />
       {
         categories.map((category)=>

@@ -187,3 +187,9 @@ tailwind use postcss behind the scene
  Add accordian.
  create restaurantcategory component and ItemList components.
 
+ Add showItwms from parent component of the itemlist.
+ Add expand and collapse from parent component of the itemlist.
+controled and uncontrolled components.
+ lifting state up.
+Add context
+Create UserContext
