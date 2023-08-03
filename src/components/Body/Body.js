@@ -8,7 +8,7 @@ const Body = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchText, setSearchText] = useState("");
-  
+
   console.log("render")
   const filterResListHandler = () => {
     const filteredList = cardData.filter((res) => res.data.avgRating > 4);
@@ -19,9 +19,9 @@ const Body = () => {
   const onClickSearchHandler = () => {
     console.log(resList)
     console.log(resList[0].info.name.toLowerCase().includes(searchText.toLowerCase()));
-        const filteredList = resList.filter((data) => data.info.name.toLowerCase().includes(searchText.toLowerCase()))
-        setFilteredResList(filteredList)
-        console.log(filteredList);
+    const filteredList = resList.filter((data) => data.info.name.toLowerCase().includes(searchText.toLowerCase()))
+    setFilteredResList(filteredList)
+    console.log(filteredList);
   }
 
   const onChangeSearchHandler = (e) => {
@@ -34,7 +34,7 @@ const Body = () => {
     //console.log(response)
     const json = await response.json();
     //console.log(json)
-    //console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
     setResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
     setFilteredResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
   };
@@ -43,12 +43,12 @@ const Body = () => {
     fetchData();
   }, []);
 
-  return resList.length === 0? (<Shimmer/>):(
+  return resList.length === 0 ? (<Shimmer />) : (
     <div className="body">
       <div className="flex justify-between my-4 mx-4">
         <div >
-            <input className= "border mx-2 w-64" type="text" value = {searchText} onChange={onChangeSearchHandler}></input>
-            <button className= "bg-red-200 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
+          <input className="border mx-2 w-64" type="text" value={searchText} onChange={onChangeSearchHandler}></input>
+          <button className="bg-red-200 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
         </div>
         <button className="bg-red-200 px-3 rounded-lg" onClick={filterResListHandler}>
           Top Rated Restaurants
@@ -56,7 +56,7 @@ const Body = () => {
       </div>
       <div className="flex flex-wrap justify-center mt-4">
         {filteredResList.map((card) => (
-          <Link to={"/restaurant/"+card.info.id} key={card.info.id}><RestaurantCard key={card.info.id} resData={card} /></Link>
+          <Link to={"/restaurant/" + card.info.id} key={card.info.id}><RestaurantCard key={card.info.id} resData={card} /></Link>
         ))}
       </div>
     </div>
