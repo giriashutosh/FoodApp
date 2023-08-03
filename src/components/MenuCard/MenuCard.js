@@ -1,16 +1,14 @@
 import React from "react";
-import { CDN_URL } from "../../utils/constant";
+import MenuDetail from "../MenuDetail/MenuDetail";
+import ItemList from "../ItemList/ItemList";
 
-const MenuCard = ({title, image, areaName,cuisines, price}) => {
+const MenuCard = (props) => {
+  //console.log(props)
   return (
-    <div className="menu-card">
-      <img className="menu-card-image" src={CDN_URL+image} alt={title} />
-      <div className="menu-card-details">
-        <h2 className="menu-card-title">{title}</h2>
-        <p className="menu-card-area">{areaName}</p>
-        <p className="menu-card-cuisines">{cuisines.join(", ")}</p>
-        <p className="menu-card-price">{price}</p>
-      </div>
+    <div className="flex w-1/2 mt-10 mb-2 flex-col  bg-slate-100">
+      <h1 className="font-bold"><span>{props.title}</span></h1>
+            <p className="menu-card-area">{props.areaName}</p>
+            <p className="">{props.price}</p>
     </div>
   );
 };
