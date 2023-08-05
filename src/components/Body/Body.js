@@ -43,15 +43,17 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
- 
-  return resList.length === 0 ? (<Shimmer />) : (
+
+  if (!filteredResList) return null 
+  
+  return  (
     <div className="body">
       <div className="flex justify-between my-4 mx-4">
         <div >
           <input className="border mx-2 w-64" type="text" value={searchText} onChange={onChangeSearchHandler}></input>
-          <button className="bg-red-200 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
+          <button className="bg-red-400 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
         </div>
-        <button className="bg-red-200 px-3 rounded-lg" onClick={filterResListHandler}>
+        <button className="bg-red-400 px-3 rounded-lg" onClick={filterResListHandler}>
           Top Rated Restaurants
         </button>
       </div>
