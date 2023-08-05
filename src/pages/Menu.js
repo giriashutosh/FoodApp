@@ -38,7 +38,7 @@ const Menu = () => {
       <MenuCard title={name} price={price} areaName={areaName} image={image} cuisines={cuisines} />
       {
         categories.map((category)=>
-        <ItemList data={category.card.card}/>)
+          <ItemList id={ category.card.card.title} data={category.card.card}/>)
       }
       
     </div>

@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { useState } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header/Header";
@@ -7,11 +7,17 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 import Menu from "./pages/Menu";
+import UserContext from "./context/UserContext.js";
 
 const AppLayout = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  
   return <div className="layout-container">
+    <UserContext.Provider value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}>
+
     <Header/>
     <Outlet/>
+    </UserContext.Provider>
   </div>;
 };
 
