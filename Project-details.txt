@@ -193,3 +193,26 @@ controled and uncontrolled components.
  lifting state up.
 Add context
 Create UserContext
+
+Redux
+it is a separate library then react. zustand is also a same lib.
+state management library. it uses with other framework and library also.
+react-redux and redux-toolkit(modern and easy way of redux).
+redux-store is just like big js object kept globally.
+slices in redux-store logically separation of data.
+like cart slice, user slice. when click on add button it dispatch an action. then it calls a function and 
+this function modify the cart/slice of store is known as Reducer. 
+Selector use to read the data from store this phenomana is known as subsrcibe to store.
+If we subscribe to incorrect store it will be a big performance loss because it track the entire store not a particular slice.
+older redux said dont mutate the state.
+new redux is doing the same thing internally as old redux.
+Redux uses immer library to do this.
+RTK says we have to either mutate the state or return the new state.
+steps
+1. Install @reduxjs/toolkit and react-redux.
+2. build store.
+3. connect store to app.
+4. create a slice.
+5. dispatch an action
+6. read the data from store.
+7. Redux devtools

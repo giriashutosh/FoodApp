@@ -45,7 +45,7 @@ const Body = () => {
   }, []);
 
   if (!filteredResList) return null 
-  
+  if  (filteredResList.length === 0) return <h1 className="mt-40 h-10 text-lg text-center font-extrabold">Finding best food near to you...</h1>
   return  (
     <div className="body">
       <div className="flex justify-between my-4 mx-4">
