@@ -208,6 +208,7 @@ older redux said dont mutate the state.
 new redux is doing the same thing internally as old redux.
 Redux uses immer library to do this.
 RTK says we have to either mutate the state or return the new state.
+RTK query.
 steps
 1. Install @reduxjs/toolkit and react-redux.
 2. build store.
