@@ -3,18 +3,20 @@ import { useParams } from 'react-router-dom'
 import Shimmer from '../components/Shimmer/Shimmer';
 import MenuCard from '../components/MenuCard/MenuCard';
 import ItemList from '../components/ItemList/ItemList';
+import CategoryTitle from '../components/CategoryTitle/CategoryTitle';
 
 const Menu = () => {
   const resId = useParams();
   const [menu, setMenu] = useState(null)
+  const [categoryTitle, setCategoryTitle] = useState("Recommended");
 
   const fetchMenuData = async () => {
     const response = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6691565&lng=77.45375779999999&restaurantId=${resId.id}&catalog_qa=undefined&submitAction=ENTER`)
     const json = await response.json();
     // console.log(response)
-    // console.log(json);
+    console.log(json);
     setMenu(json)
-    console.log(menu)
+    //console.log(menu)
   }
 
   useEffect(() => {
@@ -34,12 +36,20 @@ const Menu = () => {
   console.log(categories)
 
   return (
-    <div className='flex flex-col items-center '>
+    <div className='flex flex-col '>
       <MenuCard title={name} price={price} areaName={areaName} image={image} cuisines={cuisines} />
-      {
+      <div className='flex flex-wrap'>
+        {
+          categories.map((category) => <CategoryTitle key={category.card.card.title} data={ category.card.card} category={categoryTitle} setCategory={ setCategoryTitle}/>)
+        }
+      </div>
+      <div className='flex'>
+       {
         categories.map((category)=>
-          <ItemList id={ category.card.card.title} data={category.card.card}/>)
+          <ItemList id={category.card.card.title} data={category.card.card}  category={categoryTitle} setCategory={ setCategoryTitle}/>)
       }
+      </div>
+      
       
     </div>
   )

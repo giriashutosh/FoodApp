@@ -1,24 +1,34 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Arrow from "../../assets/image/Arrow-down.svg.png"
 import UpArrow from "../../assets/image/uparrow.png"
 import { CDN_URL } from '../../utils/constant'
+import RestaurantCard from '../RestaurantCard/RestaurantCard'
 
-const ItemList = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false)
+const ItemList = ({ data, category, setCategory }) => {
+
   console.log(data)
- 
-  const arrowHandler = () => {
-    isOpen? setIsOpen(false) : setIsOpen(true)
+  console.log(category)
+  const arrowHandler = (data) => {
+    setCategory(data);
   }
 
   return (
-    <div className='flex flex-col  w-1/2 cursor-pointer' onClick={arrowHandler}>
+    <div className='flex flex-wrap'>
+    {/* To show items related to specific category */}
+      {data.title === category &&
+        data.itemCards.map((item) => <RestaurantCard key={item.id} resData={item.card} />)
+      
+      }
+    </div>
+  )
 
-      <div className='flex justify-between items-center px-2 mb-2 rounded-lg  bg-slate-200 font-bold'>
-        <h1>{data.title}({data.itemCards.length})</h1>
-        <img className="w-5" src={isOpen? UpArrow: Arrow} />
-      </div>
-      {isOpen &&
+
+
+}
+
+export default ItemList
+
+{/* {isOpen &&
         data.itemCards.map((item) =>
         <div key = {item.card.info.id} className='flex pb-4 justify-between mb-4  border-b-2 px-4 '>
         <div>
@@ -32,11 +42,4 @@ const ItemList = ({ data }) => {
         
       </div>
         )
-      }
-      
-
-    </div>
-  )
-}
-
-export default ItemList
+      } */}
