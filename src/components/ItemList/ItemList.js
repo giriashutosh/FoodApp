@@ -16,13 +16,11 @@ const ItemList = ({ data, category, setCategory }) => {
     <div className='flex flex-wrap'>
     {/* To show items related to specific category */}
       {data.title === category &&
-        data.itemCards.map((item) => <RestaurantCard key={item.id} resData={item.card} />)
+        data.itemCards.map((item) => <RestaurantCard key={item.id} resData={item.card} menuPage={ true} />)
       
       }
     </div>
   )
-
-
 
 }
 

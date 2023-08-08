@@ -7,12 +7,12 @@ const CategoryTitle = ({ data, category, setCategory }) => {
     }
     
     return (
-        <div>
-            {data.title === category ? <div className='rounded-full bg-red-400 cursor-pointer m-2 p-1' onClick={() => arrowHandler(data.title)}>
+        <div className='hover:animate-[wiggle_1s_ease-in-out_infinite] '>
+            {data.title === category ? <div className=' rounded-full bg-red-400 cursor-pointer m-2 p-1' onClick={() => arrowHandler(data.title)}>
 
                 <h1 className=''>{data.title}({data.itemCards.length})</h1>
 
-            </div> : <div className='rounded-full  bg-red-200 cursor-pointer m-2 p-1' onClick={() => arrowHandler(data.title)}>
+            </div> : <div className='bg-opacity-50 rounded-full  bg-red-200 cursor-pointer m-2 p-1' onClick={() => arrowHandler(data.title)}>
 
                 <h1 className=''>{data.title}({data.itemCards.length})</h1>
 

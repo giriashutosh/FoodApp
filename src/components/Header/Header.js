@@ -10,6 +10,7 @@ import {
     faHome,
     faContactCard,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const TitleLeft = () => {
     return (
@@ -44,7 +45,8 @@ const TitleLeft = () => {
    
 const Header = () => {
     //const [isLoggedIn, setIsLoggedIn] = useState(true)
-    const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
+  const cartItems = useSelector((state) => state.cart.items)
     //console.log(isLoggedIn)
     const loginHandler = () => {
         isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true)
@@ -73,7 +75,7 @@ const Header = () => {
                     data-testid="cart"
                     className="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"
                   >
-                    0
+                    {cartItems.length}
                   </span>
                 </button>
                

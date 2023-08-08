@@ -8,16 +8,20 @@ import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 import Menu from "./pages/Menu";
 import UserContext from "./context/UserContext.js";
-
+import { Provider } from "react-redux";
+import store from "./store/store";
 const AppLayout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true)
-  
-  return <div className="layout-container">
-    <UserContext.Provider value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}>
 
-    <Header/>
-    <Outlet/>
-    </UserContext.Provider>
+  return <div className="layout-container">
+    <Provider store={store}>
+      <UserContext.Provider value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}>
+
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
+    </Provider>
+
   </div>;
 };
 
@@ -26,10 +30,10 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
-        {
-            path: "/",
-            element: <Body/>
-        },
+      {
+        path: "/",
+        element: <Body />
+      },
       {
         path: "/about",
         element: <About />,
@@ -40,10 +44,10 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:id",
-        element: <Menu/>
+        element: <Menu />
       }
     ],
-    errorElement: <Error/>
+    errorElement: <Error />
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
