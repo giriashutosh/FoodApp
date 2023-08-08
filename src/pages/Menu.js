@@ -38,12 +38,16 @@ const Menu = () => {
   return (
     <div className='flex flex-col '>
       <MenuCard title={name} price={price} areaName={areaName} image={image} cuisines={cuisines} />
-      <div className='flex flex-wrap '>
+      {/* <div className='flex flex-wrap '>
         {
           categories.map((category) => <CategoryTitle key={category.card.card.title} data={ category.card.card} category={categoryTitle} setCategory={ setCategoryTitle}/>)
         }
+      </div> */}
+      <div className='flex justify-center m-2 p-2'>
+      <h1 className='bg-purple-400 rounded-lg p-1'>Menu</h1>
       </div>
-      <div className='flex'>
+      
+      <div className=''>
        {
         categories.map((category)=>
           <ItemList id={category.card.card.title} data={category.card.card}  category={categoryTitle} setCategory={ setCategoryTitle}/>)

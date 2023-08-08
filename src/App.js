@@ -10,6 +10,8 @@ import Menu from "./pages/Menu";
 import UserContext from "./context/UserContext.js";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Cart from "./pages/Cart";
+
 const AppLayout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true)
 
@@ -45,6 +47,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <Menu />
+      },
+      {
+        path:"/cart",
+        element: <Cart />,
       }
     ],
     errorElement: <Error />
