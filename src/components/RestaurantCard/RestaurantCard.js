@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CDN_URL } from "../../utils/constant";
-import { addItemToCart, removeItemFormCart } from '../../store/cartSlice'
+import { addItemToCart, getTotalAmount } from '../../store/cartSlice'
 
 const RestaurantCard = (props) => {
     const { menuPage } = props;
@@ -11,6 +11,7 @@ const RestaurantCard = (props) => {
     
     const addItemToCartHandler = () => {
         dispatch(addItemToCart(props.resData.info))
+        dispatch(getTotalAmount());
     }
 
     return <div className="w-60  mx-4 mb-6 bg-gray-200 p-2 rounded-lg shadow-lg hover:animate-[wiggle_1s_ease-in-out_infinite]">

@@ -46,7 +46,7 @@ const TitleLeft = () => {
 const Header = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(true)
   const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
-  const cartItems = useSelector((state) => state.cart.items)
+  const cart = useSelector((state) => state.cart)
   //console.log(isLoggedIn)
   const loginHandler = () => {
     isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true)
@@ -76,7 +76,7 @@ const Header = () => {
               data-testid="cart"
               className="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"
             >
-              {cartItems.length}
+              {cart.cartTotalQuantity}
             </span>
           </button>
         </Link>
