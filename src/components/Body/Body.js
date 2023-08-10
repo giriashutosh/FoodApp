@@ -33,11 +33,11 @@ const Body = () => {
     );
     //console.log(response)
     const json = await response.json();
-    console.log(json)
-    console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-    setResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-    setFilteredResList(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-    console.log(filteredResList)
+    // console.log(json)
+    // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    setResList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredResList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // console.log(filteredResList)
   };
 
   useEffect(() => {

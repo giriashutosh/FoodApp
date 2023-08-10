@@ -5,7 +5,7 @@ import { addItemToCart, decreaseQuantity, removeItem, clearItemFromCart, getTota
 const CartItems = () => {
   const cartItems = useSelector((state) => state.cart.items)
   const dispatch = useDispatch();
-
+  
   const handelDecrease = (item) => {
     dispatch(decreaseQuantity(item))
     dispatch(getTotalAmount())
