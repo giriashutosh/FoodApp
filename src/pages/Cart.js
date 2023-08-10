@@ -1,9 +1,13 @@
 import React from 'react'
-import emptycard from '../assets/image/emptycard.jpg'
+import CartItems from '../components/CartItems/CartItems'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 const Cart = () => {
-  
-  return (
+  const itemLength = useSelector((state) => state.cart.items.length)
+
+  return itemLength ===0 ?(
+
     <div className='mt-2'>
       <div data-testid="complete-cart" className="flex justify-center">
         <img
@@ -19,7 +23,8 @@ const Cart = () => {
         </Link>
       </div>
     </div>
-  )
+  ) :
+    (<CartItems/>)
 }
 
 export default Cart

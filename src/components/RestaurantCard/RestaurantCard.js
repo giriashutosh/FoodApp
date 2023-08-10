@@ -10,7 +10,7 @@ const RestaurantCard = (props) => {
     const { imageId } = props.resData.info
     
     const addItemToCartHandler = () => {
-        dispatch(addItemToCart(props))
+        dispatch(addItemToCart(props.resData.info))
     }
 
     return <div className="w-60  mx-4 mb-6 bg-gray-200 p-2 rounded-lg shadow-lg hover:animate-[wiggle_1s_ease-in-out_infinite]">
