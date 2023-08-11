@@ -217,3 +217,22 @@ steps
 5. dispatch an action
 6. read the data from store.
 7. Redux devtools
+
+//Testing
+Developer Testing
+Types of Testing for Developers
+Manual Testing
+writing TestCases
+1. Unit Testing (Test application code in isolation)
+2. Integration Testing.(multiple component interact with each other)
+3. End To End Testing.
+
+//Libraries
+React-testing-library it uses jest.(install)
+install babel dependency also.
+parcel uses the babel behind the scene. so we need to change the behaviour of parcel.
+disable default babel transpilation. 
+jest configuration. npx jest --init
+when we run the test cases they dont execute on server or browser side.
+So, it need enviroment. (jsdom gives features of browser side)
+install the jsdom library
