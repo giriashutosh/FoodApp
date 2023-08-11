@@ -11,6 +11,7 @@ import UserContext from "./context/UserContext.js";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer/Footer";
 
 const AppLayout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true)
@@ -21,6 +22,7 @@ const AppLayout = () => {
 
         <Header />
         <Outlet />
+        <Footer/>
       </UserContext.Provider>
     </Provider>
 
