@@ -1,7 +1,7 @@
 import { LOGO_URL } from "../../utils/constant";
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react"
-import UserContext from "../../context/UserContext";
+import { clearItemFromCart } from "../../store/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTag,
@@ -10,8 +10,9 @@ import {
   faHome,
   faContactCard,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { loggedUserOut } from "../../store/userInfoSlice";
+import SignIn from "../SignIn/SignIn";
 const TitleLeft = () => {
   return (
     <div>
@@ -44,15 +45,26 @@ const TitleLeft = () => {
 };
 
 const Header = () => {
-  //const [isLoggedIn, setIsLoggedIn] = useState(true)
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
+  const [showModel, setShowModel] = useState(false)
   const cart = useSelector((state) => state.cart)
-  //console.log(isLoggedIn)
-  const loginHandler = () => {
-    isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true)
+  const user = useSelector((state) => state.user)
+  console.log(user)
+  const dispatch = useDispatch()
+
+  const setLoggedUserOut = () => {
+    dispatch(clearItemFromCart())
+    dispatch(loggedUserOut(value))
   }
 
-  return <div className="flex justify-between items-center shadow-lg bg-orange-200">
+  const checkLoggedIn = () => {
+    if (user.isLoggedIn == false) {
+      setShowModel(true)
+    } else {
+      Navigate("/cart")
+    }
+  }
+
+  return <><div className="flex justify-between items-center shadow-lg bg-orange-200">
 
     {/* <img className="w-20" src={LOGO_URL} /> */}
     <TitleLeft />
@@ -81,34 +93,51 @@ const Header = () => {
           </button>
         </Link>
 
-        {isLoggedIn ? (<button
-          data-modal-target="authentication-modal"
-          data-modal-toggle="authentication-modal"
-          className="pr-4 ml-3"
-          onClick={loginHandler}
-        >
-          <span className="py-2 px-2  bg-red-400 rounded-2xl text-white  ">
-            LogIn
-            <span className="p-[2px]">
-              <FontAwesomeIcon icon={faUserPlus} />
-            </span>
-          </span>
-        </button>) : (<button
-          data-modal-target="authentication-modal"
-          data-modal-toggle="authentication-modal"
-          className="pr-4 ml-3"
-          onClick={loginHandler}
-        >
-          <span className="py-2 px-2  bg-red-400 rounded-2xl text-white  ">
-            LogOut
-            <span className="p-[2px]">
-              <FontAwesomeIcon icon={faUserMinus} />
-            </span>
-          </span>
-        </button>)}
+        <li className=" px-2">
+          {user.isLoggedIn ? (
+            <Link to="/">
+              <button
+                data-modal-target="authentication-modal"
+                data-modal-toggle="authentication-modal"
+                className="pr-4"
+                onClick={() => {
+                  setLoggedUserOut(false);
+                }}
+              >
+                <span className="py-2 px-2  bg-red-400 rounded-2xl text-white  ">
+                  Logout
+                  <span className="p-[2px]">
+                    <FontAwesomeIcon icon={faUserMinus} />
+                  </span>
+                </span>
+              </button>
+            </Link>
+          ) : (
+            <Link>
+              <button
+                data-modal-target="authentication-modal"
+                data-modal-toggle="authentication-modal"
+                className="pr-4"
+                onClick={() => {
+                  setShowModel(!user.isLoggedIn);
+                }}
+              >
+                <span className="py-2 px-2 pr-2 bg-green-400 rounded-2xl text-white ">
+                  Login
+                  <span className="p-[2px]">
+                    <FontAwesomeIcon icon={faUserPlus} />
+                  </span>
+                </span>
+              </button>
+            </Link>
+          )}
+        </li>
       </ul>
     </div>
+
   </div>
+    <SignIn isVisible={showModel} onClose={() => setShowModel(false)} />
+  </>
 }
 
 export default Header;

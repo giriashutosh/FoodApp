@@ -14,16 +14,16 @@ import Cart from "./pages/Cart";
 import Footer from "./components/Footer/Footer";
 
 const AppLayout = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+ 
 
   return <div className="layout-container">
     <Provider store={store}>
-      <UserContext.Provider value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}>
+      {/* <UserContext.Provider value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}> */}
 
         <Header />
         <Outlet />
         <Footer/>
-      </UserContext.Provider>
+      {/* </UserContext.Provider> */}
     </Provider>
 
   </div>;

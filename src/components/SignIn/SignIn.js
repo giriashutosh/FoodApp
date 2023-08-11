@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "./shared/userInfoSlice";
+import { addUser } from "../../store/userInfoSlice";
 
 const SignIn = ({ isVisible, onClose }) => {
     const user = useSelector((store) => store.userInfo);
