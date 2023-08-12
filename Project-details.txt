@@ -228,11 +228,37 @@ writing TestCases
 3. End To End Testing.
 
 //Libraries
-React-testing-library it uses jest.(install)
+install React-testing-library it uses jest.(install)
+install jest
 install babel dependency also.
 parcel uses the babel behind the scene. so we need to change the behaviour of parcel.
 disable default babel transpilation. 
+configure babel.
+configure parcel config
 jest configuration. npx jest --init
-when we run the test cases they dont execute on server or browser side.
-So, it need enviroment. (jsdom gives features of browser side)
+when we run the test cases they don't execute on server or browser side.
+So, it need environment. (jsdom gives features of browser side)
 install the jsdom library
+install @babel/preset-react library. (To make jsx work in the testing need to )
+include @babel/preset-react inside babel config
+babel preset used to convert jsx code to HTML.
+Install @testing-library/jest-dom
+
+write test 
+1. test function takes two arguments one is string and callback function.
+ -first argument gives the description of the test.
+ //Assertion 
+ expect(output).toBe(should be)
+scree.getByRole or anything return jsx
+whenever there are mutliples items we write getAllByRole.
+If we have multiple test cases than to maintain them we use describe suppose we have 5 test case related to testing the one component and other 5 test case related to others.
+ for grouping
+describe("", () => { 
+  test("",()=>{
+
+  }),
+    test("",()=>{
+
+  }),
+})
+we can use it also instead of test it is just an alias
