@@ -252,7 +252,15 @@ write test
 scree.getByRole or anything return jsx
 whenever there are mutliples items we write getAllByRole.
 If we have multiple test cases than to maintain them we use describe suppose we have 5 test case related to testing the one component and other 5 test case related to others.
- for grouping
+testing does not understand redux code it only understand the react or js code.
+firevent to test any click or event related things.
+we can use regex also
+if we have to test the component which receive the props then we have to create the mock data.
+jest does not understand fetch because it lies in browser. so we have to create the mock function.
+Integration Testing
+watch test to refresh if we change anything inside the test case.
+"watch-test" : "jest --watch"
+for grouping
 describe("", () => { 
   test("",()=>{
 
