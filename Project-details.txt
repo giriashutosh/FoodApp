@@ -270,3 +270,6 @@ describe("", () => {
   }),
 })
 we can use it also instead of test it is just an alias
+whenever we do some async operation in that case we have to wrap our component into act present in react-dom/test-utils.
+beforeAll(it start before all the test) and beforeEach(for clean up task) , afterAll(after performing all the test)
+afterEach (after performing each test case)
