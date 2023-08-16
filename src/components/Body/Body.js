@@ -49,17 +49,17 @@ const Body = () => {
   return  (
     <div className="body">
       <div className="flex justify-between my-4 mx-4">
-        <div >
-          <input className="border mx-2 w-64" type="text" value={searchText} onChange={onChangeSearchHandler}></input>
-          <button className="bg-red-400 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
+        <div data-testid="search-btn">
+          <input data-testid = "search-input" className="border mx-2 w-64" type="text" value={searchText} onChange={onChangeSearchHandler}></input>
+          <button  className="bg-red-400 px-3 py-1 rounded-lg" onClick={onClickSearchHandler}>Search</button>
         </div>
         <button className="bg-red-400 px-3 rounded-lg" onClick={filterResListHandler}>
           Top Rated Restaurants
         </button>
       </div>
-      <div className="flex flex-wrap justify-center mt-4">
+      <div data-testid="restaurant-list" className="flex flex-wrap justify-center mt-4">
         {filteredResList.map((card) => (
-          <Link to={"/restaurant/" + card.info.id} key={card.info.id}><RestaurantCard key={card.info.id} resData={card} /></Link>
+          <Link  to={"/restaurant/" + card.info.id} key={card.info.id}><RestaurantCard key={card.info.id} resData={card} /></Link>
         ))}
       </div>
     </div>
