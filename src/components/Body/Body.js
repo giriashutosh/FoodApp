@@ -1,6 +1,6 @@
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import cardData from "../../utils/cardData";
-import Shimmer from "../Shimmer/Shimmer";
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Body = () => {
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log("render")
+  //console.log("render")
   const filterResListHandler = () => {
     const filteredList = cardData.filter((res) => res.data.avgRating > 4);
     //console.log(filteredList);
